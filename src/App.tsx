@@ -1,14 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Count } from './view/countdown/index';
-import Todo from './view/todoList/index';
+import { Count } from './view/countdownPro/index';
+import Todo from './view/todo/index';
+import TodoPro from './view/todoPro/index';
+import Search from './view/search/index';
 
 function App() {
   return (
     <div className="App">
       {/* <Count/> */}
-      <Todo/>
+      {/* <Todo/> */}
+      {/* <TodoPro/> */}
+      <Search/>
     </div>
   );
 }
