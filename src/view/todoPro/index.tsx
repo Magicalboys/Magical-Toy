@@ -77,10 +77,10 @@ function TodoPro() {
       const newTodo = [...todo];
       // 删除开始拖动的元素
       const [startTodo] = newTodo.splice(startIndex, 1);
+      // 插入开始拖动的元素
       newTodo.splice(endIndex, 0, startTodo);
       setTodo(newTodo);
     }
-    
   };
 
 

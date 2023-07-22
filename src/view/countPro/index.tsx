@@ -21,6 +21,7 @@ export const Count = () => {
     setAble(true);
     
     setRecover((isRecover)=>!isRecover)
+    
     console.log(isRecover)
   };
 
