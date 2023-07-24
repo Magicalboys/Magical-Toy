@@ -1,0 +1,8 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #922d2d;
+}
+
+/* 可以根据实际需求进行样式调整 */
