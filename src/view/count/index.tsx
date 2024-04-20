@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function index() {
   interface Todo {
@@ -8,13 +8,13 @@ export default function index() {
   }
   
   // 相当于type TodoPreview = { title: string; completed: boolean; }
-  type TodoPreview = Pick<Todo, "title" | "completed">;
+  type TodoPreview = Pick<Todo, 'title' | 'completed'>;
   
   const todo: TodoPreview = {
-    title: "Clean room",
-    completed: false,
+      title: 'Clean room',
+      completed: false,
   };
   return (
-    <div>index</div>
-  )
+      <div>index</div>
+  );
 }

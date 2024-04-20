@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 interface Todo {
   id: number;
@@ -7,70 +7,70 @@ interface Todo {
 }
 
 const TodoList: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [inputValue, setInputValue] = useState('');
+    const [todos, setTodos] = useState<Todo[]>([]);
+    const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleAddTodo = () => {
-    if (inputValue.trim() === '') {
-      return;
-    }
-
-    const newTodo: Todo = {
-      id: Date.now(),
-      text: inputValue.trim(),
-      completed: false,
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(event.target.value);
     };
 
-    setTodos([...todos, newTodo]);
-    setInputValue('');
-  };
+    const handleAddTodo = () => {
+        if (inputValue.trim() === '') {
+            return;
+        }
 
-  const handleToggleTodo = (id: number) => {
-    const newTodos = todos.map(todo => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          completed: !todo.completed,
+        const newTodo: Todo = {
+            id: Date.now(),
+            text: inputValue.trim(),
+            completed: false,
         };
-      } else {
-        return todo;
-      }
-    });
 
-    setTodos(newTodos);
-  };
+        setTodos([...todos, newTodo]);
+        setInputValue('');
+    };
 
-  const handleDeleteTodo = (id: number) => {
-    const newTodos = todos.filter(todo => todo.id !== id);
-    setTodos(newTodos);
-  };
+    const handleToggleTodo = (id: number) => {
+        const newTodos = todos.map(todo => {
+            if (todo.id === id) {
+                return {
+                    ...todo,
+                    completed: !todo.completed,
+                };
+            } else {
+                return todo;
+            }
+        });
 
-  return (
-    <div>
-      <h1>Todo List</h1>
-      <input type="text" value={inputValue} onChange={handleInputChange} />
-      <button onClick={handleAddTodo}>Add</button>
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleToggleTodo(todo.id)}
-            />
-            <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
-              {todo.text}
-            </span>
-            <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+        setTodos(newTodos);
+    };
+
+    const handleDeleteTodo = (id: number) => {
+        const newTodos = todos.filter(todo => todo.id !== id);
+        setTodos(newTodos);
+    };
+
+    return (
+        <div>
+            <h1>Todo List</h1>
+            <input type="text" value={inputValue} onChange={handleInputChange} />
+            <button onClick={handleAddTodo}>Add</button>
+            <ul>
+                {todos.map(todo => (
+                    <li key={todo.id}>
+                        <input
+                            type="checkbox"
+                            checked={todo.completed}
+                            onChange={() => handleToggleTodo(todo.id)}
+                        />
+                        <span style={{textDecoration: todo.completed ? 'line-through' : 'none'}}>
+                            {todo.text}
+                        </span>
+                        <button onClick={() => handleDeleteTodo(todo.id)}>Delete</button>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
 export default TodoList;
