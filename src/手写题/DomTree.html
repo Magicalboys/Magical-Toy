@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <p></p>
+        <span>
+            <span></span>
+        </span>
+        <p></p>
+        <span>
+            <span></span>
+        </span>
+    </div>
+</body>
+    <script>
+        console.log(document.querySelector('#root'))
+        // 结果用console.log()进行输出
+        // 上述表达式的输出结果为
+        // ['DIV']
+        // ['P', 'SPAN', 'P', 'SPAN']
+        // ['SPAN', 'SPAN']
+        function traverse(elRoot) {
+            const ans = [];
+            const queue = [];
+            queue.push(elRoot);
+            while (queue.length){
+                const cur = [];
+                const size = queue.length;
+                for (let i = 0 ;i < size ; i ++){
+                    const node = queue.shift();
+                    cur.push(node.tagName);
+                    for (const item of node.children){
+                        queue.push(item)
+                    }
+                }
+                ans.push(cur);
+            }     
+            return ans;
+        }
+        const ans = traverse(document.querySelector('#root'))
+        console.log(ans)
+    </script>
+</html>

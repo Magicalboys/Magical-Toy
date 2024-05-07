@@ -7,6 +7,7 @@ import Search from './view/search/index';
 import VirtualScroll from './view/srcoll';
 import Pagination from './view/pagination';
 import SearchPro from './view/searchPro';
+import Menu from './view/menus/index';
 
 function App() {
     return (
@@ -15,7 +16,8 @@ function App() {
             {/* <Todo/> */}
             {/* <TodoPro/> */}
             {/* <Search /> */}
-            <SearchPro />
+            {/* <SearchPro /> */}
+            <Menu/>
             {/* <Pagination /> */}
             {/* <VirtualScroll /> */}
         </div>

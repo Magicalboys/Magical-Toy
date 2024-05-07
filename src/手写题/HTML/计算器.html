@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React Calculator</title>
+<style>
+  .calculator {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .display {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .button {
+    width: 23%;
+    padding: 10px;
+    margin: 1%;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e7e7e7;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #d7d7d7;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+  <script crossorigin src="https://unpkg.com/react/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script crossorigin src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+  <script type="text/babel">
+    const { useState } = React;
+
+    const Calculator = () => {
+      const [current, setCurrent] = useState('');
+      const [previous, setPrevious] = useState(null);
+      const [operator, setOperator] = useState(null);
+
+      const clear = () => {
+        setCurrent('');
+        setPrevious(null);
+        setOperator(null);
+      };
+
+      const sign = () => {
+        setCurrent(current.charAt(0) === '-' ? current.slice(1) : `-${current}`);
+      };
+
+      const percent = () => {
+        setCurrent(String(parseFloat(current) / 100));
+      };
+
+      const append = (num) => {
+        if (operator && current === previous || current === 'Infinity') {
+          setCurrent(num);
+        } 
+        else {
+          setCurrent(current + num);
+        }
+      };
+      
+      const chooseOperator = (op) => {
+        if (current === '') return;
+        setPrevious(current);
+        setCurrent('')
+        setOperator(op);
+      };
+
+      const calculate = () => {
+        if (previous === null || operator === null) return;
+        const currentNumber = parseFloat(current);
+        const previousNumber = parseFloat(previous);
+        let result = '';
+        switch (operator) {
+          case '+':
+            result = previousNumber + currentNumber;
+            break;
+          case '-':
+            result = previousNumber - currentNumber;
+            break;
+          case '*':
+            result = previousNumber * currentNumber;
+            break;
+          case '/':
+            result = previousNumber / currentNumber;
+            break;
+          default:
+            return;
+        }
+        setCurrent(String(result));
+        setPrevious(null);
+        setOperator(null);
+      };
+
+      return (
+        <div className="calculator">
+          <div className="display">{current || '0'}</div>
+          <div className="row">
+            <button className="button" onClick={clear}>C</button>
+            <button className="button" onClick={sign}>±</button>
+            <button className="button" onClick={percent}>%</button>
+            <button className="button" onClick={() => chooseOperator('/')}>÷</button>
+          </div>
+          <div class="row">
+            <button class="button" onClick={() => append('7')}>7</button>
+            <button class="button" onClick={() => append('8')}>8</button>
+            <button class="button" onClick={() => append('9')}>9</button>
+            <button class="button" onClick={() => chooseOperator('*')}>x</button>
+          </div>
+          <div class="row">
+            <button class="button" onClick={() => append('4')}>4</button>
+            <button class="button" onClick={() => append('5')}>5</button>
+            <button class="button" onClick={() => append('6')}>6</button>
+            <button class="button" onClick={() => chooseOperator('-')}>-</button>
+          </div>
+          <div class="row">
+            <button class="button" onClick={() => append('1')}>1</button>
+            <button class="button" onClick={() => append('2')}>2</button>
+            <button class="button" onClick={() => append('3')}>3</button>
+            <button class="button" onClick={() => chooseOperator('+')}>+</button>
+          </div>
+          <div className="row">
+            <button className="button" onClick={() => append('0')}>0</button>
+            <button className="button" onClick={() => append('.')}>.</button>
+            <button className="button" onClick={calculate}>=</button>
+          </div>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<Calculator />, document.getElementById('app'));
+  </script>
+</body>
+</html>

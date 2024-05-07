@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editable Component</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- React and ReactDOM CDN links -->
+<script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+
+<script type="text/babel">
+  const {useState} = React;
+  const EditableComponent = () => {
+    const [isEditing, setIsEditing] = useState(false);
+    const handleBlur = (e) => {
+        // event.persist()
+        setIsEditing(false);
+    };
+    return (
+      <div>
+        {isEditing ? (
+          <button onClick={() => setIsEditing(false)} >A</button>
+        ) : (
+          <button onClick={() => setIsEditing(true)} >B</button>
+        )}
+        {isEditing && <input onBlur={handleBlur} />}
+      </div>
+    );
+  };
+
+  ReactDOM.render(
+    <EditableComponent />,
+    document.getElementById('root')
+  );
+</script>
+
+</body>
+</html>

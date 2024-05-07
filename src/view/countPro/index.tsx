@@ -8,6 +8,7 @@ const Countdown: React.FC<CountdownProps> = ({initialSeconds}) => {
     const [secondsLeft, setSecondsLeft] = useState(initialSeconds);
     const [isActive, setIsActive] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    
 
     const startTimer = () => {
         if (intervalRef.current !== null) return; // 如果已经开始，则忽略
