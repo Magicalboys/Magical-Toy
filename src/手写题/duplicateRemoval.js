@@ -5,4 +5,4 @@ function duplicateRemoval(inputStr){
     const ans = [...set].join('');
     return ans;
 }
-console.log(duplicateRemoval('12222131112'))
+console.log(duplicateRemoval('12222131112'));

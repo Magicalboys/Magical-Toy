@@ -9,7 +9,7 @@ const parseIntFun = (str) => {
         }
     }
     return ans;
-}
+};
 
 const a = parseIntFun('1234a');
-console.log(a + 1)
+console.log(a + 1);

@@ -6,10 +6,10 @@ var combine = function (m,n) {
             ans.push(cur);
             return;
         }
-        for (let i = start; i <=  m; i++) {
+        for (let i = start; i <= m; i++) {
             dfs(i + 1, [...cur, i]);
         }
-    }
-    dfs(1, [])
+    };
+    dfs(1, []);
     return ans;
 };

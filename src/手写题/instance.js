@@ -1,9 +1,9 @@
-const instance = (target , fn) => {
-    const proto = target.__proto__;
+const instanceOf = (target , fn) => {
+    let proto = target.__proto__;
     let prototype = fn.prototype;
-    while(true){
+    while(1){
         if (proto === prototype) return true;
         if (proto === null) return false;
-        proto = proto.__proto__ 
+        proto = proto.__proto__; 
     }
-}
+};

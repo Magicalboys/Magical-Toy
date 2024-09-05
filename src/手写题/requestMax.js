@@ -10,7 +10,7 @@ class Scheduler {
         return new Promise(resolve => {
             this.queue.push(() => task().then(resolve));
             this.schedule();
-        })
+        });
     }
 
     schedule(){
@@ -21,31 +21,31 @@ class Scheduler {
             promise.then (res => {
                 this.count --;
                 this.schedule();
-            })
+            });
         }
     }
 }
 
 const sleep = (time) => {
-   return new Promise((resolve)=>{
+    return new Promise((resolve)=>{
         setTimeout(()=>{
-            resolve(time)
-        },time)
-   })
-}
+            resolve(time);
+        },time);
+    });
+};
 
 const schedule = new Scheduler();
 
 const addTask = (time) => {
     schedule.add(() => sleep(time))
-    .then(res=> {
-        console.log(res);
-    } );
-}
+        .then(res=> {
+            console.log(res);
+        } );
+};
 
-addTask(1000)
-addTask(500)
-addTask(300)
-addTask(400)
+addTask(1000);
+addTask(500);
+addTask(300);
+addTask(400);
 
 

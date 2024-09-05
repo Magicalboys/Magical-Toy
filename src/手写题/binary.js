@@ -36,12 +36,12 @@
 
 // 10 -> 2
 const binary = (num, x) => {
-    let ans = ''
+    let ans = '';
     while (num){
         ans = num % x + ans;
         num = Math.floor( num / x);
     }
     return ans;
-}
+};
 
-console.log(binary(9,10))
+console.log(binary(9,10));

@@ -43,10 +43,10 @@ const minus = (x, y) => {
     }
     let res = ans.replace(/^0+/, '');
     return flag ? '-' + res : res;
-}
+};
 
-let a = minus('1','17')
-console.log(a)
+let a = minus('1','17');
+console.log(a);
 
 
 

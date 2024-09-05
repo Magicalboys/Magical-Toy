@@ -19,7 +19,7 @@ const numberToChinese = (num) => {
         } else {
             ans = chars[cur] + units[i] + ans;
         }
-        n = Math.floor(n / 10)
+        n = Math.floor(n / 10);
     }
     // if (ans == '') return ZERO;
     if (num < 0) ans = '-' + ans;
@@ -28,10 +28,10 @@ const numberToChinese = (num) => {
 };
 
 // 测试函数，打印1234的中文表述
-console.log(numberToChinese(10104));  // 输出：一千二百三十四
+console.log(numberToChinese(10104)); // 输出：一千二百三十四
 
 // 测试函数，打印0的中文表述
-console.log(numberToChinese(1900));     // 输出：零
+console.log(numberToChinese(1900)); // 输出：零
 
 // 测试函数，打印-10的中文表述
-console.log(numberToChinese(10051));   // 输出：负十
+console.log(numberToChinese(10051)); // 输出：负十

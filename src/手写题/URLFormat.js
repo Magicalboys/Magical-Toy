@@ -1,5 +1,5 @@
 let url = 
-`http://www.domain.com/?user=anonymous&id=123&id=456&id=789&city=%E5%8C%97%E4%BA%AC&enabled`;
+'http://www.domain.com/?user=anonymous&id=123&id=456&id=789&city=%E5%8C%97%E4%BA%AC&enabled';
 
 const format = () => {
     const obj = url.split('?')[1];
@@ -13,7 +13,7 @@ const format = () => {
             !Array.isArray(ans[key]) ? ans[key] = [ans[key]] : '';
             ans[key].push(val);
         }else {
-            ans[key] = val
+            ans[key] = val;
         }
     }
     return ans;
@@ -21,4 +21,4 @@ const format = () => {
 
 const ans = format(url);
 
-console.log(ans)
+console.log(ans);

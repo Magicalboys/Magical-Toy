@@ -12,18 +12,47 @@
             <span></span>
         </span>
         <p></p>
-        <span>
-            <span></span>
-        </span>
+        <ul>
+            <li></li>
+        </ul>
     </div>
 </body>
     <script>
         console.log(document.querySelector('#root'))
-        // 结果用console.log()进行输出
+        {
+            tagName:'DIV'
+            children: [
+                {
+                    tagName:'P'
+                },
+                {
+                    tagName:'SPAN',
+                    children: [
+                        {
+                            tagName:'SPAN'
+                            
+                        },
+                    ]
+                },
+                {
+                    tagName:'P'
+                },
+                {
+                    tagName:'UI',
+                    children: [
+                        {
+                            tagName:'LI'
+                            
+                        },
+                    ]
+                },
+            ]
+        }
+
         // 上述表达式的输出结果为
         // ['DIV']
-        // ['P', 'SPAN', 'P', 'SPAN']
-        // ['SPAN', 'SPAN']
+        // ['P', 'SPAN', 'P', 'UI']
+        // ['SPAN', 'LI']
         function traverse(elRoot) {
             const ans = [];
             const queue = [];
@@ -43,6 +72,7 @@
             return ans;
         }
         const ans = traverse(document.querySelector('#root'))
+        // traverse()
         console.log(ans)
     </script>
 </html>

@@ -9,8 +9,8 @@ var search = function(nums, target) {
             l = mid + 1 ; 
         }
     }
-     return nums[l] === target ? l : -1 ;
+    return nums[l] === target ? l : -1 ;
 };
 
-let ans = search([1,3,3,4,6],3)
-console.log(ans)
+let ans = search([1,3,3,4,6],3);
+console.log(ans);

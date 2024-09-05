@@ -16,4 +16,4 @@ function climStairs(n){
     return dp[n];
 }
 
-console.log(climStairs(4))
+console.log(climStairs(4));

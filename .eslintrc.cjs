@@ -45,9 +45,6 @@ module.exports = {
         // 缩进风格
         'indent': ['error', 4],
 
-        // 禁止使用 console
-        'no-console': 2,
-
         // 比如import {Route} ，{} 两侧 无空格
         'object-curly-spacing': ['error', 'never'],
 
