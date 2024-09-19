@@ -189,3 +189,25 @@ const addTask_ = (time)=>{
 addTask_(100);
 addTask_(100);
 addTask_(100);
+
+
+const allSettle = (promises) => {
+    let ans = [], cnt = 0; 
+    return new Promise((resolve,reject) => {
+        promises.forEach((promise,index)=> {
+            Promise.resolve(promise).then(res=>{
+                cnt ++;
+                ans[index] = {status:'fulfilled', value: res};
+                if (cnt === promises.length){
+                    resolve(ans);
+                }
+            }).catch((err => {
+                cnt ++;
+                ans[index] = {status: 'rejected', value:err};
+                if (cnt === promises.length) {
+                    reject(ans);
+                }
+            }));
+        });
+    });
+};

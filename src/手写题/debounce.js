@@ -35,6 +35,7 @@ const debounce = (fn,time)=> {
         },time);
     };
 };
+
 // 节流：一个时间段内，只有一次能触发回调函数的执行
 const throttle = (fn,time) => {
     let flag = false;

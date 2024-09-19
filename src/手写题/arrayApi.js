@@ -49,3 +49,11 @@ const b = format(str);
 console.log(b);
 
 
+
+Array.prototype.reduce = (fun,init = 0) =>{
+    let pre = init;
+    this.forEach((item,index,arr) => {
+        pre = fun(pre,item,index,arr);
+    });
+    return pre;
+};
