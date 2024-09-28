@@ -1,0 +1,18 @@
+.tree {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.tree-node {
+    margin-left: 20px;
+}
+
+.node-label {
+    cursor: pointer;
+    color: #007bff;
+}
+
+.node-label:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}

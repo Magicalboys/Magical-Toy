@@ -8,7 +8,9 @@ import './App.css';
 // import Pagination from './view/pagination';
 // import SearchPro from './view/searchPro';
 // import Menu from './view/menus/index';
-import VirtualList from './hooks/useVirtualList/demo';
+// import VirtualList from './hooks/useVirtualList/demo';
+// import {VirtualList} from './view/VirtualList/index';
+import {Tree} from './view/TreeNode';
 // import Baomingrenxinxi from './view/demo';
 
 function App() {
@@ -22,7 +24,8 @@ function App() {
             {/* <Menu/> */}
             {/* <Pagination /> */}
             {/* <VirtualScroll /> */}
-            <VirtualList/>
+            {/* <VirtualList/> */}
+            <Tree/>
         </div>
     );
 }
